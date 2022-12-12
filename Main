@@ -1,0 +1,85 @@
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xactver/LUA-Scripts/main/ShopItemCrucifix"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    CustomName = "Joaco", -- Custom name of your entity
+    Model = "rbxassetid://11805970300", -- Can be GitHub file or rbxassetid
+    Speed = 400, -- Percentage, 100 = default Rush speed
+    DelayTime = 5, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    KillRange = 70,
+    BreakLights = true,
+    BackwardsMovement = true,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        5, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 99,
+        Max = 99,
+        WaitTime = 3,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {5, 30, 0.5, 3}, -- Shake values (don't change if you don't know)
+        0, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://11805889363", -- Image1 url
+            Image2 = "rbxassetid://11805889363", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                8880765497, -- SoundId
+                { Volume = 1 }, -- Sound properties
+            },
+            Sound2 = {
+                9045199073, -- SoundId
+                { Volume = 1 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(255, 255, 255), -- Color
+            },
+            Tease = {
+                false, -- Enabled/Disabled
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"Moriste por Joaco", "Tonto", "Aweonao, como moriste por Joaco", "Estupido"}, -- Custom death message
+})
+
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityTable)
+    print("Entity has spawned:", entityTable.Model)
+end
+
+entity.Debug.OnEntityDespawned = function(entityTable)
+    print("Entity has despawned:", entityTable.Model)
+end
+
+entity.Debug.OnEntityStartMoving = function(entityTable)
+     CanKill = true
+end
+
+entity.Debug.OnEntityFinishedRebound = function(entityTable)
+    print("Entity has finished rebound:", entityTable.Model)
+end
+
+entity.Debug.OnEntityEnteredRoom = function(entityTable, room)
+    print("Entity:", entityTable.Model, "has entered room:", room)
+end
+
+entity.Debug.OnLookAtEntity = function(entityTable)
+    print("Player has looked at entity:", entityTable.Model)
+end
+
+entity.Debug.OnDeath = function(entityTable)
+end
+------------------------
+
+-- Run the created entity
+Creator.runEntity(entity)
