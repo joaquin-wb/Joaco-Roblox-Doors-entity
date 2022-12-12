@@ -1,0 +1,35 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Joaco's Doors GUI", "BloodTheme")
+    -- MAIN
+    local Main = Window:NewTab("script hub")
+    local MainSection = Main:NewSection("Main")
+ 
+    local Inviter = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Discord%20Inviter/Source.lua"))()
+
+-- Creates an interactable prompt
+Inviter.Prompt({
+    name = "Fino señores",
+    invite = "https://discord.gg/sy95sRABbf",
+})
+
+ 
+ 
+MainSection:NewButton("troll", "Spawns Troll", function()
+loadstring(game:HttpGet('https://pastebin.com/raw/4PtX7dGp'))()
+    end)
+ 
+MainSection:NewButton("crucifix", "execute an external GUI", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Johnny39871/assets/main/DoorsHubSpawner'))()
+    end)
+ 
+MainSection:NewButton("rush", "Spawns Rush", function()
+loadstring(game:HttpGet('https://pastebin.com/raw/nyTKfUd1'))()
+    end)
+ 
+MainSection:NewButton("ambush", "Spawns Ambush", function()
+loadstring(game:HttpGet('https://pastebin.com/raw/40Em1wPx'))()
+    end)
+
+    MainSection:NewButton("Joaco", "Spawns me :D", function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/joaquin-wb/Joaco-Roblox-Doors-entity/main/Main'))()
+            end)
